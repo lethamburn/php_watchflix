@@ -1,22 +1,14 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-        <div class="container">
-        {% for serie in shows %}
-            <div class="card">
-            <a href="{{ path('show', {'id': serie.id}) }}"><img class="img-poster" src="{{serie.image}}" /></a>
-            </div>
-            {% endfor %}
-        </div>
+	<div class="container">
+		{% for serie in shows %}
+			<div class="card">
+				<a href="{{ path('show', {'id': serie.id}) }}">
+                <img class="img-poster" src="{{serie.image}}"/>
+                </a>
+			</div>
+		{% endfor %}
+	</div>
 
 {% endblock %}
-
-           {# -{{serie.title}}
-           -{{serie.seasons}} seasons
-           -{{serie.chapters}} chapters
-           -{{serie.description}}
-           <img src="{{serie.image}}"/>
-           -Fondo <img src="{{serie.background}}"/>
-           -<a href="{{serie.link}}">Link</a>
-        
-           <a href="{{path('deletePage', {id:serie.id}) }}">Delete</a> #}

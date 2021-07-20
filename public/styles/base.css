@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
-.logo{
+.logo {
   width: 300px;
   height: auto;
 }
@@ -15,17 +15,16 @@ body {
   background-color: #000;
   display: grid;
   place-items: center;
- 
 }
 nav {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: white;
   -webkit-box-reflect: below 2px
-  linear-gradient(transparent, transparent, #0004);
+    linear-gradient(transparent, transparent, #0004);
 }
 .navlink {
   padding-left: 15px;
-  padding-right: 15px
+  padding-right: 15px;
 }
 .nav-icon {
   width: 50px;
@@ -48,8 +47,9 @@ nav {
   transition: 0.5s;
 }
 .container {
-  max-width: 600px;
+  max-width: 80%;
   max-height: auto;
+  flex-wrap: wrap;
 
   display: flex;
   justify-content: center;
@@ -92,47 +92,49 @@ textarea {
 
 .btn {
   font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
   width: 200px;
   height: 40px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 10px;
-	color: #000000 !important;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: #ffffff9c;
-	border: 4px solid #000000 !important;
-	display: inline-block;
-	transition: all 0.4s ease 0s;
+  color: #000000 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #ffffff9c;
+  border: 4px solid #000000 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
   padding-top: 6px;
 }
 
 .btn:hover {
-    width: 200px;
-	color: #ffffff !important;
-	background: black;
-	border-color: #ffffff !important;
-	transition: all 0.4s ease 0s;
+  width: 200px;
+  color: #ffffff !important;
+  background: black;
+  border-color: #ffffff !important;
+  transition: all 0.4s ease 0s;
 }
-h2{
-    color: white;
+h2 {
+  color: white;
 }
-h1{
-    color: white;
-    margin-bottom: 10px;
+h1 {
+  color: white;
+  margin-bottom: 10px;
 }
-h3{
-  color:black;
-
-}
-p{
+h3 {
   color: black;
   font-size: 14px;
 }
-.poster-detail{
+p {
+  color: black;
+  font-size: 12px;
+}
+.poster-detail {
   width: 200px;
   border: 4px solid #000000 !important;
 }
-.detail-container{
+.detail-container {
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -140,14 +142,14 @@ p{
   align-items: center;
   text-align: center;
   -webkit-box-reflect: below 2px
-  linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.048));
+    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.048));
 }
-.detail-container-column{
+.detail-container-column {
   margin-left: 200px;
   margin-right: 150px;
 }
-.detail{
-	border: 4px solid #000000 !important;
+.detail {
+  border: 4px solid #000000 !important;
   align-items: center;
   width: 200px;
   height: auto;
@@ -157,14 +159,18 @@ p{
   margin: 10px;
   padding: 10px;
 }
-.detail-description{
-	border: 4px solid #000000 !important;
+.detail-description {
+  border: 4px solid #000000 !important;
   align-items: center;
   width: 200px;
   height: auto;
   background: rgba(255, 255, 255, 0.781);
   border-radius: 10px;
   text-align: justify;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
+}
+
+footer{
+  margin: 14px;
 }
