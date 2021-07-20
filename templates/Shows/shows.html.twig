@@ -4,7 +4,7 @@
         <div class="container">
         {% for serie in shows %}
             <div class="card">
-            <a href="{{ path('show', {'id': serie.id}) }}"><img src="{{serie.image}}" /></a>
+            <a href="{{ path('show', {'id': serie.id}) }}"><img class="img-poster" src="{{serie.image}}" /></a>
             </div>
             {% endfor %}
         </div>

@@ -1,7 +1,32 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>{{serie.title}}</h1>
-      <img src="{{serie.image}}" />
 
-{% endblock %}
+	<div style="background-image:url({{serie.background}}); background-repeat: no-repeat; background-size: cover" class="detail-container">
+		<div class="detail-container-column">
+			<div class="detail">
+				<h3>{{serie.title}}<h3></div>
+					<img class="poster-detail" src="{{serie.image}}"/>
+				</div>
+				<div class="detail-container-column">
+					<div class="detail">
+						<h3>Seasons:
+							{{serie.seasons}}
+						</h3>
+					</div>
+					<div class="detail">
+						<h3>Chapters:
+							{{serie.chapters}}
+						</h3>
+					</div>
+					<div class="detail-description">
+						<p>{{serie.description}}</p>
+					</div>
+					<div text-align="center">
+						<a class="submit btn" href="{{serie.link}}">Watch</a>
+            <a class="submit btn" href="{{path('shows')}}">Back to Shows</a>
+					</div>
+				</div>
+			</div>
+
+		{% endblock %}
