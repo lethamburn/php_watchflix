@@ -1,12 +1,6 @@
-Insertar:
-
-Foto de la serie
-Foto de fondo
-Numero de Temporadas
-Numero de capitulos totales
-Descripcion
-Elegir plataforma
-
-Hacer un boton de implementar la base de datos inicial
-
-docker-compose exec -u Letham php bash!!!!!!!!
+<div align="center">
+<img class="logo" src="public/images/logo.png"/>
+</div>
+<div align="center">
+<h4>Proyecto de PHP para Upgrade Hub de Antonio Rosales</h4>
+</div>
