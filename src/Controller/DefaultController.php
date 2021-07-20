@@ -16,9 +16,11 @@ class DefaultController extends AbstractController
      * @Route("/", name="home")
      */
 
-    public function homepage()
+    public function homepage(EntityManagerInterface $em)
     {
-        return $this->render("Home/home.html.twig");
+        $repo = $em->getRepository(Serie::class);
+        $series = $repo->findAll();
+        return $this->render("Home/home.html.twig", ["shows" => $series]);
     }
     /**
      * @Route("/form ", name="formulario")
@@ -63,7 +65,7 @@ class DefaultController extends AbstractController
 
         return $this->render("Shows/shows.html.twig", ["shows" => $series]);
     }
-     /**
+    /**
      * @Route("/shows/{id}", name="show")
      */
     public function getShow(Serie $serie)
