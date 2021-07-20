@@ -46,6 +46,8 @@ class DefaultController extends AbstractController
 
             $em->persist($newSerie);
             $em->flush();
+
+            return $this->redirectToRoute("shows");
         }
 
         return $this->render("Form/form.html.twig");
