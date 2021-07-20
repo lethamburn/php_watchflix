@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Watchflix{% endblock %}</title>
+        <link rel="icon" type="image/png" href="/images/tv.png">
+        <link rel="stylesheet" href="/styles/base.css"> {# Hay que tener cuidado con el ./ y hacerlo con el / para que lo pille desde todas las rutas}
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+
+     
+            {% block nav %}
+               <h1>WATCHFLIX</h1>
+        <header>
+                <nav>
+                 <a class="navlink" href="{{path('home')}}"><img class="nav-icon" src="/images/home.png" /></a>
+                 <a class="navlink" href="{{path('shows')}}"><img class="nav-icon" src="/images/tv.png" /></a>
+                 <a class="navlink" href="{{path('formulario')}}"><img class="nav-icon" src="/images/tvplus.png" /></a>
+                 <a class="navlink" href=""><img  class="nav-icon-user" src="/images/user.png" /></a>
+                </nav>
+        </header>
+            {% endblock %}
+
+            {% block body %}
+               
+            {% endblock %}
+    </body>
+</html>
