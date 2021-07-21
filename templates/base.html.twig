@@ -10,8 +10,8 @@
 		<link
 		rel="stylesheet" href="/styles/base.css">
 		{# Hay que tener cuidado con el ./ y hacerlo con el / para que lo pille desde todas las rutas}
-																		        {# Run `composer require symfony/webpack-encore-bundle`
-																		           and uncomment the following Encore helpers to start using Symfony UX #}
+																						        {# Run `composer require symfony/webpack-encore-bundle`
+																						           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
@@ -38,7 +38,10 @@
 		{% block body %}{% endblock %}
 
 		<footer>
-			<p style="color: white">Watchflix - Antonio Rosales Martínez © 2021</p>
+			<p style="color: white; font-weight: bold;"><span style="color: #DC1A28">WATCHFLIX</span> | Antonio Rosales Martínez © 2021</p>
+			<p style="color: white;font-weight: bold">GitHub |
+				<a style="text-decoration: none; color: #DC1A28" target="_blank" href="https://github.com/lethamburn/php_watchflix">github.com/lethamburn/php_watchflix</a>
+			</p>
 		</footer>
 	</body>
 </html>
