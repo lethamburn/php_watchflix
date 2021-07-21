@@ -4,6 +4,15 @@
   width: 300px;
   height: auto;
 }
+.imagelist{
+  max-width: 70%;
+  text-align: center;
+  opacity: 0.7;
+}
+.imagelist:hover{
+  opacity: 1;
+  transition: all 0.4s ease 0s;
+}
 .homeimage {
   -webkit-box-reflect: below 2px
     linear-gradient(transparent, transparent, #0004);
@@ -17,6 +26,7 @@ body {
   background-color: #000;
   display: grid;
   place-items: center;
+  min-height: 100vh;
 }
 nav {
   margin-bottom: 30px;
@@ -37,8 +47,8 @@ nav {
   height: 45px;
 }
 .img-poster {
-  width: 200px;
-  height: 320px;
+  width: 150px;
+  height: 230px;
   object-fit: cover;
   -webkit-box-reflect: below 2px
     linear-gradient(transparent, transparent, #0004);
@@ -63,7 +73,7 @@ nav {
   opacity: 1;
 }
 .form {
-  margin-top: 40px;
+  margin-top: 5px;
   color: white;
   text-align: center;
 }
@@ -95,8 +105,6 @@ textarea {
   font-size: 14px;
   width: 200px;
   height: 40px;
-  margin-top: 5px;
-  margin-bottom: 10px;
   color: #000000 !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -104,7 +112,10 @@ textarea {
   border: 4px solid #000000 !important;
   display: inline-block;
   transition: all 0.4s ease 0s;
-  padding-top: 6px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 5px;
 }
 
 .btn:hover {
