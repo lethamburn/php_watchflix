@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Movie;
 use App\Entity\Serie;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -87,5 +88,68 @@ class DefaultController extends AbstractController
         $em->remove($serie);
         $em->flush();
         return $this->redirectToRoute("shows");
+    }
+    /**
+     * @Route("/movies ", name="movies")
+     */
+
+    public function moviesPage(EntityManagerInterface $em)
+    {
+        $repo = $em->getRepository(Movie::class);
+        $movies = $repo->findAll();
+
+        return $this->render("Movies/movies.html.twig", ["movies" => $movies]);
+    }
+    /**
+     * @Route("/movies/{id}", name="movie")
+     */
+    public function getMovie(Movie $movie)
+    {
+
+        return $this->render(
+            "Movies/movie.html.twig",
+            ['movie' => $movie]
+        );
+    }
+    /**
+     * @Route("/form2 ", name="formulario2")
+     */
+
+    public function formpage2(EntityManagerInterface $em, Request $req)
+    {
+        $title = $req->request->get("title");
+        $duration = $req->request->get("duration");
+        $description = $req->request->get("description");
+        $image = $req->request->get("image");
+        $background = $req->request->get("background");
+        $link = $req->request->get("link");
+
+        if ($title) {
+            $newMovie = new Movie();
+            $newMovie->setTitle($title);
+            $newMovie->setDescription($description);
+            $newMovie->setDuration($duration);
+            $newMovie->setImage($image);
+            $newMovie->setBackground($background);
+            $newMovie->setLink($link);
+
+            $em->persist($newMovie);
+            $em->flush();
+
+            return $this->redirectToRoute("movies");
+        }
+
+        return $this->render("Form/form2.html.twig");
+    }
+    /**
+     * @Route("/database/deletemovie/{id}", name="deletePageMovie")
+     */
+    public function deleteMovie($id, EntityManagerInterface $em)
+    {
+
+        $movie = $em->getRepository(Movie::class)->find($id);
+        $em->remove($movie);
+        $em->flush();
+        return $this->redirectToRoute("movies");
     }
 }

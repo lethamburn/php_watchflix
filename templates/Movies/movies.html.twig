@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container">
+		{% for movie in movies %}
+			<div class="card">
+				<a href="{{ path('movie', {'id': movie.id}) }}">
+					<img class="img-poster" src="{{movie.image}}"/>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

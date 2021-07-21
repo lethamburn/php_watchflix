@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <form method="POST" class="form">
+     <div class="input-container ic1">
+        <input class="input" type="text" name="title" placeholder="Title" />
+         <div class="input-container ic1">
+        <input class="input" type="number" name="duration" placeholder="Duration in minutes"/>
+         <div class="input-container ic1">
+        <textarea maxlength="255"class="input" type="text" name="description" placeholder="Description"></textarea>
+         <div class="input-container ic1">
+        <input class="input" type="text" name="image" placeholder="Image" />
+         <div class="input-container ic1">
+        <input class="input" type="text" name="background" placeholder="Background Image" />
+         <div class="input-container ic1">
+          <input class="input" type="text" name="link" placeholder="Link" />
+          <br />
+        <button class="submit btn" type="submit">Add Movie</button>
+    </form>
+{% endblock %}
