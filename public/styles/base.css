@@ -4,12 +4,14 @@
   width: 300px;
   height: auto;
 }
-* {
+.homeimage {
+  -webkit-box-reflect: below 2px
+    linear-gradient(transparent, transparent, #0004);
+}
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-body {
   font-family: "Ubuntu", sans-serif;
   width: 100%;
   background-color: #000;
@@ -38,10 +40,8 @@ nav {
   width: 200px;
   height: 320px;
   object-fit: cover;
-
   -webkit-box-reflect: below 2px
     linear-gradient(transparent, transparent, #0004);
-
   transform-origin: center;
   transform: perspective(800px) rotateY(25deg);
   transition: 0.5s;
@@ -50,7 +50,6 @@ nav {
   max-width: 80%;
   max-height: auto;
   flex-wrap: wrap;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,6 +170,6 @@ p {
   padding: 10px;
 }
 
-footer{
+footer {
   margin: 14px;
 }

@@ -1,7 +1,14 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-	<h2>HOME</h2>
+	<div class="imagelist">
+		{% for serie in shows %}
+			<a href="{{ path('shows') }}"><img class="homeimage" src="{{serie.image}}" width="120px" height="180px"/></a>
+		{% endfor %}
+		{% for movie in movies %}
+			<a href="{{ path('movies') }}"><img class="homeimage" src="{{movie.image}}" width="120px" height="180px"/></a>
+		{% endfor %}
+	</div>
 {% endblock %}
 
 {# https://symfony.com/doc/current/reference/constraints/Length.html} #}

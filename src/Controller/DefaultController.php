@@ -21,10 +21,12 @@ class DefaultController extends AbstractController
     {
         $repo = $em->getRepository(Serie::class);
         $series = $repo->findAll();
-        return $this->render("Home/home.html.twig", ["shows" => $series]);
+        $repo = $em->getRepository(Movie::class);
+        $movies = $repo->findAll();
+        return $this->render("Home/home.html.twig", ["shows" => $series, "movies" => $movies]);
     }
     /**
-     * @Route("/form ", name="formulario")
+     * @Route("/formShows ", name="formulario")
      */
 
     public function formpage(EntityManagerInterface $em, Request $req)
@@ -112,7 +114,7 @@ class DefaultController extends AbstractController
         );
     }
     /**
-     * @Route("/form2 ", name="formulario2")
+     * @Route("/formMovies ", name="formulario2")
      */
 
     public function formpage2(EntityManagerInterface $em, Request $req)
