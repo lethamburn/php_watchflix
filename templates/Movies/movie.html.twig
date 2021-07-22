@@ -10,8 +10,9 @@
 				</div>
 				<div class="detail-container-column">
 					<div class="detail">
-						<h3>Duration: 
-							{{movie.duration}} minutes
+						<h3>Duration:
+							{{movie.duration}}
+							minutes
 						</h3>
 					</div>
 					<div class="detail-description">
@@ -22,6 +23,7 @@
 						<a target="_blank" class="submit btn" href="{{movie.link}}">Watch</a>
 						<a class="submit btn" href="{{path('deletePageMovie', {id:movie.id})}}">Delete</a>
 						<a class="submit btn" href="{{path('movies')}}">Back to Movies</a>
+						<a class="submit btn">⭐</a>
 					</div>
 				</div>
 			</div>
