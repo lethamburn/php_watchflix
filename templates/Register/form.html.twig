@@ -3,9 +3,10 @@
 {% block title %}Watchflix - Register
 {% endblock %}
 
+
 {% block body %}
-	<div style="color: white">
-		{{ form_start(registerForm) }}
+	<div style="color: white; " class="form">
+		{{ form_start(registerForm)}}
 		{{ form_widget(registerForm)}}
 		<button class="btn btn-lg btn-primary" type="submit">Register</button>
 		{{ form_end(registerForm)}}

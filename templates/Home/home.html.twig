@@ -2,11 +2,12 @@
 
 {% block body %}
 	<div class="imagelist">
+
 		{% for serie in shows %}
-			<a href="{{ path('shows') }}"><img class="homeimage" src="{{serie.image}}" width="120px" height="180px"/></a>
+			<img class="homeimage" src="{{serie.image}}" width="120px" height="180px"/>
 		{% endfor %}
 		{% for movie in movies %}
-			<a href="{{ path('movies') }}"><img class="homeimage" src="{{movie.image}}" width="120px" height="180px"/></a>
+			<img class="homeimage" src="{{movie.image}}" width="120px" height="180px"/>
 		{% endfor %}
 	</div>
 {% endblock %}

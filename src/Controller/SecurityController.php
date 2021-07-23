@@ -3,12 +3,16 @@
 namespace App\Controller;
 
 use App\Form\UserFormType;
+use App\Security\LoginAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator;
 
 class SecurityController extends AbstractController
 {
@@ -40,7 +44,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/register", name="register")
      */
-    public function register(Request $request, EntityManagerInterface $doctrine)
+    public function register(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder, GuardAuthenticatorHandler $guard, LoginAuthenticator $formAuthenticator)
     {
 
         $form = $this->createForm(UserFormType::class);
@@ -48,11 +52,16 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
-            $doctrine->persist($user);
-            $doctrine->flush();
+            $newUser = $form->getData();
+            $password = $newUser->getPassword();
+            $passwordEncode = $encoder->encodePassword($newUser, $password);
+            $newUser->setPassword($passwordEncode);
+            $newUser->setRoles(['ROLE_USER']);
 
-            return $this->redirectToRoute('app_login');
+            $em->persist($newUser);
+            $em->flush();
+
+            return $guard->authenticateUserAndHandleSuccess($newUser, $request, $formAuthenticator, 'app_login');
         }
         return $this->render("./Register/form.html.twig", ["registerForm" => $form->createView()]);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Movie;
 use App\Entity\Serie;
 use Doctrine\ORM\EntityManagerInterface;

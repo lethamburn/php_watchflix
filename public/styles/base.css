@@ -81,6 +81,10 @@ nav {
   margin-top: 10px;
   width: 200px;
 }
+input {
+  margin-top: 10px;
+  width: 200px;
+}
 textarea {
   font-family: "Ubuntu", sans-serif;
   width: 200px;
