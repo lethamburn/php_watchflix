@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\UserFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,7 +43,7 @@ class SecurityController extends AbstractController
     public function register(Request $request, EntityManagerInterface $doctrine)
     {
 
-        $form = $this->createForm(UserForm::class);
+        $form = $this->createForm(UserFormType::class);
 
         $form->handleRequest($request);
 
@@ -53,6 +54,6 @@ class SecurityController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-        return $this->render("./security/login.html.twig");
+        return $this->render("./Register/form.html.twig", ["registerForm" => $form->createView()]);
     }
 };
