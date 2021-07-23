@@ -4,12 +4,12 @@
   width: 300px;
   height: auto;
 }
-.imagelist{
+.imagelist {
   max-width: 70%;
   text-align: center;
   opacity: 0.7;
 }
-.imagelist:hover{
+.imagelist:hover {
   opacity: 1;
   transition: all 0.4s ease 0s;
 }
