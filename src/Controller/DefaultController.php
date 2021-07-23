@@ -20,6 +20,7 @@ class DefaultController extends AbstractController
 
     public function homepage(EntityManagerInterface $em)
     {
+
         $repo = $em->getRepository(Serie::class);
         $series = $repo->findAll();
         $repo = $em->getRepository(Movie::class);
@@ -32,6 +33,7 @@ class DefaultController extends AbstractController
 
     public function formpage(EntityManagerInterface $em, Request $req)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $title = $req->request->get("title");
         $seasons = $req->request->get("seasons");
         $chapters = $req->request->get("chapters");
@@ -64,6 +66,7 @@ class DefaultController extends AbstractController
 
     public function dbtestpage(EntityManagerInterface $em)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $repo = $em->getRepository(Serie::class);
         $series = $repo->findAll();
 
@@ -74,7 +77,7 @@ class DefaultController extends AbstractController
      */
     public function getShow(Serie $serie)
     {
-
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render(
             "Shows/show.html.twig",
             ['serie' => $serie]
@@ -86,7 +89,7 @@ class DefaultController extends AbstractController
      */
     public function deleteShow($id, EntityManagerInterface $em)
     {
-
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $serie = $em->getRepository(Serie::class)->find($id);
         $em->remove($serie);
         $em->flush();
@@ -98,6 +101,7 @@ class DefaultController extends AbstractController
 
     public function moviesPage(EntityManagerInterface $em)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $repo = $em->getRepository(Movie::class);
         $movies = $repo->findAll();
 
@@ -108,7 +112,7 @@ class DefaultController extends AbstractController
      */
     public function getMovie(Movie $movie)
     {
-
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render(
             "Movies/movie.html.twig",
             ['movie' => $movie]
@@ -120,6 +124,7 @@ class DefaultController extends AbstractController
 
     public function formpage2(EntityManagerInterface $em, Request $req)
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $title = $req->request->get("title");
         $duration = $req->request->get("duration");
         $description = $req->request->get("description");
@@ -149,7 +154,7 @@ class DefaultController extends AbstractController
      */
     public function deleteMovie($id, EntityManagerInterface $em)
     {
-
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $movie = $em->getRepository(Movie::class)->find($id);
         $em->remove($movie);
         $em->flush();

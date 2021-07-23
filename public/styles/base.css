@@ -147,6 +147,7 @@ p {
 .poster-detail {
   width: 200px;
   border: 4px solid #000000 !important;
+  margin-bottom: 35px;
 }
 .detail-container {
   display: flex;
