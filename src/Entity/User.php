@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -38,6 +40,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Movie::class, inversedBy="users")
+     */
+    private $Fav;
+
+    public function __construct()
+    {
+        $this->Fav = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -123,6 +135,30 @@ class User implements UserInterface
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Movie[]
+     */
+    public function getFav(): Collection
+    {
+        return $this->Fav;
+    }
+
+    public function addFav(Movie $fav): self
+    {
+        if (!$this->Fav->contains($fav)) {
+            $this->Fav[] = $fav;
+        }
+
+        return $this;
+    }
+
+    public function removeFav(Movie $fav): self
+    {
+        $this->Fav->removeElement($fav);
 
         return $this;
     }
