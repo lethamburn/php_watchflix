@@ -46,9 +46,15 @@ class User implements UserInterface
      */
     private $Fav;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Serie::class, inversedBy="users")
+     */
+    private $favShow;
+
     public function __construct()
     {
         $this->Fav = new ArrayCollection();
+        $this->favShow = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,6 +165,30 @@ class User implements UserInterface
     public function removeFav(Movie $fav): self
     {
         $this->Fav->removeElement($fav);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getFavShow(): Collection
+    {
+        return $this->favShow;
+    }
+
+    public function addFavShow(Serie $favShow): self
+    {
+        if (!$this->favShow->contains($favShow)) {
+            $this->favShow[] = $favShow;
+        }
+
+        return $this;
+    }
+
+    public function removeFavShow(Serie $favShow): self
+    {
+        $this->favShow->removeElement($favShow);
 
         return $this;
     }
