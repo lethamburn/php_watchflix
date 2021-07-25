@@ -160,4 +160,41 @@ class DefaultController extends AbstractController
         $em->flush();
         return $this->redirectToRoute("movies");
     }
+    /**
+     * @Route("/favmovies/{id}", name="favmovies")
+     */
+    public function favMovies($id, EntityManagerInterface $em)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $repo = $em->getRepository(Movie::class);
+        $movie = $repo->find($id);
+        $user = $this->getUser();
+        $user->addFav($movie);
+        $em->flush();
+        return $this->redirectToRoute("favs");
+    }
+    /**
+     * @Route("/favshows/{id}", name="favshows")
+     */
+    public function favShows($id, EntityManagerInterface $em)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $repo = $em->getRepository(Serie::class);
+        $serie = $repo->find($id);
+        $user = $this->getUser();
+        $user->addFavShow($serie);
+        $em->flush();
+        return $this->redirectToRoute("favs");
+    }
+    /**
+     * @Route("/favs", name="favs")
+     */
+    public function favsPage(EntityManagerInterface $em)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $user = $this->getUser();
+        $favs = $user->getFavShow();
+        $favsMovies = $user->getFav();
+        return $this->render("Favs/favs.html.twig", ["favs" => $favs, "favMovies" => $favsMovies]);
+    }
 }
