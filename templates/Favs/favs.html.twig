@@ -9,6 +9,8 @@
 			<div class="card">
 				<a href="{{ path('movie', {'id': movie.id}) }}">
 					<img class="img-poster" src="{{movie.image}}"/>
+					<br />
+					<a class="submit btnfav" href="{{path('deletefavmovie', {'id':movie.id})}}">🗑️</a>
 				</a>
 			</div>
 		{% endfor %}
@@ -16,6 +18,8 @@
 			<div class="card">
 				<a href="{{ path('show', {'id': serie.id}) }}">
 					<img class="img-poster" src="{{serie.image}}"/>
+					<br />
+					<a class="submit btnfav" href="{{path('deletefavshow', {'id':serie.id})}}">🗑️</a>
 				</a>
 			</div>
 		{% endfor %}

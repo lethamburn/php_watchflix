@@ -197,4 +197,30 @@ class DefaultController extends AbstractController
         $favsMovies = $user->getFav();
         return $this->render("Favs/favs.html.twig", ["favs" => $favs, "favMovies" => $favsMovies]);
     }
+    /**
+     * @Route("/deletefavshow/{id}", name="deletefavshow")
+     */
+    public function removeFavShow(EntityManagerInterface $em, $id)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $repo = $em->getRepository(Serie::class);
+        $serie = $repo->find($id);
+        $user = $this->getUser();
+        $user->removeFavShow($serie);
+        $em->flush();
+        return $this->redirectToRoute("favs");
+    }
+    /**
+     * @Route("/deletefavmovie/{id}", name="deletefavmovie")
+     */
+    public function removeFavMovie(EntityManagerInterface $em, $id)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        $repo = $em->getRepository(Movie::class);
+        $movie = $repo->find($id);
+        $user = $this->getUser();
+        $user->removeFav($movie);
+        $em->flush();
+        return $this->redirectToRoute("favs");
+    }
 }
