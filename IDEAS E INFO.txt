@@ -11,3 +11,5 @@ Descripcion
 docker-compose up -d
 
 docker-compose exec -u Letham php bash!!!!!!!!
+
+*recomendaciones de un usuario a otro
