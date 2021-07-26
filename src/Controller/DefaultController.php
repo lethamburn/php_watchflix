@@ -187,15 +187,15 @@ class DefaultController extends AbstractController
         return $this->redirectToRoute("favs");
     }
     /**
-     * @Route("/favs", name="favs")
+     * @Route("/watchlist", name="favs")
      */
-    public function favsPage(EntityManagerInterface $em)
+    public function favsPage()
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $user = $this->getUser();
         $favs = $user->getFavShow();
         $favsMovies = $user->getFav();
-        return $this->render("Favs/favs.html.twig", ["favs" => $favs, "favMovies" => $favsMovies]);
+        return $this->render("Favs/favs.html.twig", ["favs" => $favs, "favMovies" => $favsMovies, "user" => $user]);
     }
     /**
      * @Route("/deletefavshow/{id}", name="deletefavshow")

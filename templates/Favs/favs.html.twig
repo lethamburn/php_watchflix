@@ -4,12 +4,14 @@
 {% endblock %}
 
 {% block body %}
+	<h3 style="text-align: center; color: white; font-size: 18px">
+		<span style="color: #DC1A28">{{app.user.username |capitalize}}'s </span>watchlist</h3>
 	<div class="container">
 		{% for movie in favMovies %}
 			<div class="card">
 				<a href="{{ path('movie', {'id': movie.id}) }}">
 					<img class="img-poster" src="{{movie.image}}"/>
-					<br />
+					<br/>
 					<a class="submit btnfav" href="{{path('deletefavmovie', {'id':movie.id})}}">🗑️</a>
 				</a>
 			</div>
@@ -18,7 +20,7 @@
 			<div class="card">
 				<a href="{{ path('show', {'id': serie.id}) }}">
 					<img class="img-poster" src="{{serie.image}}"/>
-					<br />
+					<br/>
 					<a class="submit btnfav" href="{{path('deletefavshow', {'id':serie.id})}}">🗑️</a>
 				</a>
 			</div>
